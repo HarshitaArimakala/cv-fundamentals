@@ -1,4 +1,4 @@
-## Week 3 Capstone - Document Scanner
+## Week 2 - Document Scanner
 
 A classical CV pipeline that detects a document in an image, extracts it, 
 and produces a clean top-down scan — similar to CamScanner.
@@ -15,11 +15,6 @@ and produces a clean top-down scan — similar to CamScanner.
 - Contour detection and approximation
 - Perspective transform / homography
 - `cv2.getPerspectiveTransform` and `cv2.warpPerspective`
-
-### How to Run
-```bash
-python code.py
-```
 
 ### Input / Output
 - Input: Image containing a document (phone photo, angled scan)
