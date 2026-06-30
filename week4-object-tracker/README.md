@@ -1,7 +1,5 @@
 # Lucas-Kanade Sparse Optical Flow
 
-## What this is
-
 Implementation of sparse optical flow using the Lucas-Kanade method. Detects Shi-Tomasi corners on the first frame, then tracks each one frame-to-frame using `cv2.calcOpticalFlowPyrLK`, drawing motion vectors as the points move.
 
 ## Pipeline
@@ -20,13 +18,9 @@ Implementation of sparse optical flow using the Lucas-Kanade method. Detects Shi
 * Connection between the LK matrix ($A^T A$) and the Harris structure tensor from Week 3 — why corners are the ideal points to track
 * Image pyramids and why they're needed for motion larger than a few pixels
 
-## Notes on tracking behaviour
-
 LK tracks corners, not objects. Some drawn vectors will look inconsistent or "random" — this is expected, since background corners and featureless-region points are tracked just as readily as the intended subject, and each genuinely reflects that point's own (sometimes noisy) motion estimate.
 
 # Farneback Dense Optical Flow
-
-## What this is
 
 Implementation of dense optical flow using the Farneback method. Unlike Day 1's sparse tracker (which follows a chosen set of corners), this computes a velocity vector for every pixel in the frame and visualises the entire motion field as an HSV-coded image.
 
