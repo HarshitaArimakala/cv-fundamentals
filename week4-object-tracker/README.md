@@ -49,3 +49,17 @@ Implementation of dense optical flow using the Farneback method. Unlike Day 1's 
 | **Needs texture** | Yes | No |
 | **Speed** | Fast | Slower |
 | **Best for** | Tracking a specific object | Understanding overall scene motion |
+
+
+# Template Matching
+## Overview
+Implementation of classical template matching to locate and track a target image patch within a larger video frame. This approach utilizes a sliding window technique to evaluate pixel-level similarity at every possible position, providing a foundational but rigid tracking mechanism.
+
+## Key Concepts
+**Sliding Window Search (cv.matchTemplate):** The process of sliding a template over a search image to compute a match score for each location, resulting in a response map of size (H - h + 1, W - w + 1).
+
+**Metrics:** * Utilized TM_CCOEFF_NORMED (Normalized Correlation Coefficient) for robust matching against minor lighting variations. This metric normalizes scores from -1.0 to 1.0.
+
+**Peak Location (cv.minMaxLoc):** Used to parse the response map and extract the maxLoc (the top-left coordinate of the best match) and maxVal (the confidence score).
+
+**Confidence Thresholding:** Filtering out false positives by conditionally rendering bounding boxes only when maxVal > 0.8. This prevents the algorithm from snapping to the "least bad" match when the target object is occluded or out of frame.
